@@ -1,0 +1,294 @@
+OVERVIEW
+This training covers the full journey of creating a real, deployable custom AI Assistant using the Chain Prompting method, OpenAI's Assistants API, and frontend/backend tools.
+At the end, you'll have an assistant you can use in production, train more, and even build businesses around.
+
+FULL PROCESS FLOW
+
+Phase 1: Chain Prompting Setup — Building Out Your AI Agent
+Goal:
+Use a series of focused GPT tools to design the entire "soul" of your assistant before ever coding or deploying.
+1. Define the Vision — Highly Suggested Prompts (HSP)
+Tool: Highly Suggested Prompts (HSP) - https://chatgpt.com/g/g-haeo2jTUS-highly-suggested-prompts-hsps
+
+
+Prompt: "Please generate a prompt to build the following idea: (insert your idea, general or detailed)."
+Output: Your Master Prompt — a detailed definition of what your agent will do.
+
+
+
+2. Create System Instructions — Instruction Architect
+Tool: Instruction Architect - https://chatgpt.com/g/g-676964c88b088191b70dcd4133ae2595-1-system-instruction-architect
+
+
+Prompt: "Please use the following prompt to generate system instructions for my assistant: (your HSP result)."
+Output: Full System Instructions (personality, tone, workflow, compliance rules).
+
+
+
+3. Define Functions (Optional, Recommended) — Funky
+Tool: Funky (Function Schema Builder) - https://chatgpt.com/g/g-MW14VqXOV-funky
+
+
+Prompt:
+
+
+"Please use the following system instructions to generate OpenAI function schemas for this assistant."
+Output: Function Schema in JSON (defines expected structured input/output).
+
+
+
+4. Build Knowledge Base — Knowledge Base Architect
+Tool: Knowledge Base Architect - https://chatgpt.com/g/g-679e8aa68d70819185c2f072b4bf2065-autonomous-rag-builder
+
+
+Prompt: "Please use the following data (System Instructions + Function Schema) to create a verified Knowledge Base from trusted, recent sources."
+Output: Static documents (usually Markdown) compiling reference materials for your Assistant.
+
+
+
+5. Generate Project Structure — Project Structure Architect
+Tool: Project Structure Architect - https://chatgpt.com/g/g-67a5092e227c81919212f7862604d5cf-project-structure-architect
+
+
+Prompt: "Please use the following materials to build a complete project structure (backend/frontend/infra) ready to upload to Replit/AWS/GitHub."
+Output: Directory tree including:
+
+
+Backend (Lambda or server)
+
+
+Frontend (React or HTML)
+
+
+Terraform or AWS scripts
+
+
+Placeholders for API keys
+
+
+
+6. Create Full Documentation — Comprehensive PRD Architect
+Tool: Comprehensive PRD Architect - https://chatgpt.com/g/g-67a465d99950819186563b257bac0d88-comprehensive-prd-knowledge-architect
+
+
+Prompt: "Please compile the System Instructions, Function Schema, Knowledge Base, and Project Structure into a complete Product Requirements Document (PRD)."
+Output: A full professional PRD to track your build.
+
+
+
+7. Build Prompt Templates — PromptBuilder Architect
+Tool: PromptBuilder Architect - https://chatgpt.com/g/g-67ebb39985c88191bde258e563a05af8-promptbuilder-architect
+
+
+Prompt:
+
+
+Using my attached and pasted assistant information, Please generate a master prompt and a series of sequential prompts (5, 20, 100) for dev copilots like Replit, Cursor, Lovable, Bolt.new. Create separate front end scripts, back end scripts, and then separate scripts for the site map to ensure proper build (landing page, user oauth/sign in, dashboard, chat bot, and any and all other pages needed. Include any necessary api keys and placeholders. Make sure to make 1 master prompt to include all of the necessary ingredients to build, as well as several additional prompt sequences, like 5, 10, 20 50 and 100 step prompt build sprints). Do this for each format and let the user choose what the want to use:
+Output: Developer prompts for faster building inside AI-enabled IDEs.
+
+
+
+At the end of Phase 1, you'll have everything ready to deploy an AI Assistant — but nothing is live yet.
+Phase 2: OpenAI Assistant Deployment — Bringing Your Agent to Life
+
+8. Set Up Your OpenAI Account (If Needed)
+Go to OpenAI Platform
+
+
+Sign Up or Log In
+
+
+Under Billing, add $5 to $10 minimum (required to generate a usable API key).
+
+
+Verify billing is activated before continuing.
+
+
+
+9. Create Your OpenAI API Key
+Go to: API Keys Settings
+
+
+Create New Key → Copy it and store securely (you won’t see it again).
+
+
+This will be needed for your backend or frontend integrations.
+
+
+
+10. Create Your Assistant in OpenAI
+Go to Assistants Dashboard
+
+
+Click "Create Assistant".
+
+
+Fill in Setup Form:
+Field
+What to Enter
+Name
+Your Assistant Name (e.g., "Stori", "CoachGPT", "BizBuilderBot")
+Instructions
+Paste the System Instructions you built
+Tools
+Enable "Code Interpreter" (optional), "Retrieval" (optional if KB needed)
+Functions
+Paste your Function Schema JSON
+Knowledge Base
+Upload your Knowledge Base file(s) (e.g., Markdown, PDFs)
+
+Click Create — your Assistant is now live.
+After creation, copy and save:
+Assistant ID
+
+
+Vector Store ID (if using Knowledge Base)
+
+
+Organization ID (from OpenAI dashboard)
+
+
+
+11. Create Your Configuration File
+Create a simple config file (config.json or .env) with these fields:
+json
+CopyEdit
+{
+  "OPENAI_API_KEY": "your-api-key",
+  "ASSISTANT_ID": "your-assistant-id",
+  "VECTOR_STORE_ID": "your-vector-store-id",
+  "PROJECT_ID": "optional-project-id",
+  "ORG_ID": "your-organization-id"
+}
+
+This will be used to connect your frontend/backend to your Assistant.
+Phase 3: Bundle All Assets — Prepare for Frontend and Backend Build
+(This is the real missing step you asked for — corrected below.)
+
+11. Build Your Full Product Requirements Document (PRD)
+Tool: Comprehensive PRD Architect
+
+
+Prompt:
+
+
+"Please compile my System Instructions, Function Schema, Knowledge Base details, Assistant ID, API Key, and any deployment configs into a complete Product Requirements Document (PRD) for my AI Assistant project."
+What goes inside the PRD:
+System Instructions
+
+
+Function Schemas
+
+
+Knowledge Base outline
+
+
+Assistant ID, Vector Store ID, API Key
+
+
+Frontend and backend deployment notes
+
+
+You can either:
+Download the PRD
+
+
+or Copy/Paste the PRD text for the next step.
+
+
+
+12. Use PromptBuilder Architect to Create Dev Prompts
+Tool: PromptBuilder Architect
+
+
+Prompt:
+
+
+"Please use the following PRD to generate master dev prompts for building this project. Include frontend prompts (React/Vite), backend prompts (API handling), page-by-page prompts (landing page, chat page, dashboard, login/signup)."
+Output:
+Master Setup Prompt
+
+
+5 Prompt Quick Setup
+
+
+20 Prompt Detailed Setup
+
+
+100 Prompt Full Setup
+
+
+Frontend Specific Prompts
+
+
+Backend Specific Prompts
+
+
+Page-by-Page Specific Prompts
+
+
+These prompts tell Replit, v0.dev, Lovable.dev, Cursor, etc. exactly what to build.
+
+Phase 4: Frontend and Backend Deployment — Actually Building the App
+
+13. Paste Dev Prompts into your IDE or Build Platform
+Options where you can paste and start building:
+Platform
+Notes
+Replit
+Great for quick full-stack serverless projects
+v0.dev
+Best for React/Vite frontend auto-generation
+Lovable.dev
+Copilot-style web/app generation
+Cursor
+GitHub Copilot++ AI IDE, great for custom builds
+Bolt.new
+Instant code generation from prompts
+
+Paste your PromptBuilder Architect outputs into these tools —
+ and watch them autogenerate your frontend, backend, infra, API calls, etc.
+
+14. Insert Configuration Details
+Into your generated frontend/backend, make sure to insert:
+OPENAI_API_KEY
+
+
+ASSISTANT_ID
+
+
+VECTOR_STORE_ID
+
+
+(Optional) ORG_ID, PROJECT_ID
+
+
+This connects your live frontend directly to your Assistant in OpenAI.
+
+15. Test, Tweak, and Launch 
+Test frontend chat → backend → OpenAI Assistant.
+
+
+Tweak any prompts or UI.
+
+
+Deploy live via Replit, Vercel, AWS Amplify, or your preferred host.
+
+
+
+Final Flow Summary (Ultra Simple)
+Phase
+What You Do
+Phase 1
+Chain prompting to create Master Prompt, System Instructions, Functions, KB
+Phase 2
+Create OpenAI Assistant
+Phase 3
+Create PRD + generate PromptBuilder outputs
+Phase 4
+Paste into Replit/v0/Lovable/etc → Build frontend/backend
+
+
+Closing
+Now you have a real process that mirrors how serious, modular agent builders work.
+You can now repeat this over and over to build unlimited assistants, each with their own soul, frontend, and deployment.
